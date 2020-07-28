@@ -10,7 +10,14 @@ public function projectGet(){
     return $res;
     
 }
-
+public function projectId($id){
+    $qry = 'SELECT * FROM proyectos
+    WHERE id_proyecto='.$id;
+    $rt = new mysqlfunciones;
+    $res = $rt->ejecutar($qry);
+    return $res;
+    
+}
 
  }
 

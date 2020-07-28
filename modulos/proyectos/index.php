@@ -6,8 +6,8 @@ use funciones\mysqlfunciones;
 use consultas_sql\consultas;
 $ejecutar = new mysqlfunciones();
 $consulta= new consultas();
-$usr = $consulta->usr();
-$session = $ejecutar->usuarioActivo();
+$project = $consulta->projectGet();
+//$session = $ejecutar->usuarioActivo();
  
 ?>
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ $session = $ejecutar->usuarioActivo();
   
    ?>
 
-    <title>Document</title>
+    <title>Proyectos</title>
 </head>
 <body>
     <?php
@@ -28,45 +28,39 @@ $session = $ejecutar->usuarioActivo();
   <div class="container mt-5">
   <div class="row">
   <div class="col-sm-12">
-  <a href="../../cerrarsesion.php" class="btn btn-danger float-right mb-5">Cerrar Sesion</a>
-  <a href="formularios_usuarios.php" class="btn btn-primary float-left mb-5">Nuevo</a>
+  <a href="../../cerrarsesion.php" class="btn btn-danger float-right mb-5"><span class="fas fa-sign-out-alt"></span> Cerrar Sesion</a>
+  <a href="formularios_usuarios.php" class="btn btn-primary float-left mb-5"><span class="fa fa-plus-circle"></span>  Nuevo</a>
   </div>
-  <div class="col-sm-12">
-      <div class="table-responsive">
-      <table class="table table-stripped">
-    <thead>
-    <tr>    
-    <th> Nombre</th>
-    
-    <th>Correo electronico</th>
-    <th>teléfono</th>
-    <th >Acciones</th>
-    </tr>
-    </thead>
-    <tbody>
-        <?php
-    while ($mostrar=mysqli_fetch_array($usr)){ //array: nos trae un arreglo de datos por posiciones, //2: arreglo asociativo podemos ver los campos de los bd
-        ?>
-        <tr>
-        <th><?php echo$mostrar['nombre'];?></th>
-        <th><?php echo$mostrar['correo_usr'];?></th>
-        <th><?php echo$mostrar['telefono'];?></th>
-        <td><a href="fedicion_usuario.php?id=<?php echo $mostrar['id_usuario']; ?>">Editar</a>
-        <a href="eliminar_usuarios.php?id=<?php echo $mostrar['id_usuario']; ?>">Eliminar</a>
-    
-    </td>
-       
-        </tr>
-        <?php
-    }
-        ?>
-    </tbody>
-    </table>
+  <div class="container">
+<div class="row">
+  <div class="col-sm-4 mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-center">USUARIOS</h5>
+        <a href="modulos/usuarios/index.php" class="btn btn-dark">Ir a tareas</a>
       </div>
+    </div>
   </div>
 
+  <div class="col-sm-4 mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-center">BLOG</h5>
+        <a href="modulos/blog/index.php" class="btn btn-dark ">Ir a tareas</a>
+      </div>
+    </div>
   </div>
+
+  <div class="col-sm-4 mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-center">CATEGORIAS</h5>
+        <a href="modulos/categorias/index.php" class="btn btn-dark ">Ir a tareas</a>
+      </div>
+    </div>
   </div>
+</div>
+</div>
 
   
   <?php include("../../includes/script.php")?>

@@ -1,8 +1,8 @@
 <?php
 
-define("HOST", "localhost");
-define("USUARIO", "root");
-define("PASSWORD", "");
-define("BD", "blog");
+define("HOST", "chalaneros.com");
+define("USUARIO", "chalaner_equipo1");
+define("PASSWORD", "Equipo1.2020!");
+define("BD", "proyectofinalbd");
 ?>
 

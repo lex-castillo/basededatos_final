@@ -2,7 +2,7 @@
 
 namespace funciones;
 
-//define('url', "http://".$_SERVER['HTTP_HOST']."/proyectodb/");
+
 class mysqlfunciones{
     
     public function ejecutar($qry){

@@ -8,7 +8,6 @@ $ejecutar = new mysqlfunciones();
 $consulta= new consultas();
 $project = $consulta->projectGet();
 //$session = $ejecutar->usuarioActivo();
- 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,32 +32,27 @@ $project = $consulta->projectGet();
   </div>
   <div class="container">
 <div class="row">
-  <div class="col-sm-4 mt-5">
+<?php
+    while ($mostrar=mysqli_fetch_array($project)){?>
+       <div class="col-sm-4 mt-5">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title text-center">USUARIOS</h5>
-        <a href="modulos/usuarios/index.php" class="btn btn-dark">Ir a tareas</a>
-      </div>
-    </div>
-  </div>
+       <h5 class="card-title text-center"><a href="all_project.php"><?php echo $mostrar["nombre_proyecto"]?></a></h5>
+        <?php if($mostrar["id_proyecto"]==1){?>
+          <a id="a" href="modulos/usuarios/index.php" class="a-style btn btn-dark">Ir a tareas</a>
+          <a id="a" href="modulos/usuarios/index.php" class="a-style btn btn-dark float-left">Agregar tareas</a>
 
-  <div class="col-sm-4 mt-5">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title text-center">BLOG</h5>
-        <a href="modulos/blog/index.php" class="btn btn-dark ">Ir a tareas</a>
+          <?php } else {?>
+          <a id="a" href="modulos/usuarios/index.php" class="a-stile btn btn-dark float-left">Agregar tareas</a>
+        <?php } ?>
       </div>
     </div>
   </div>
+        <?php }?>
+ 
 
-  <div class="col-sm-4 mt-5">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title text-center">CATEGORIAS</h5>
-        <a href="modulos/categorias/index.php" class="btn btn-dark ">Ir a tareas</a>
-      </div>
-    </div>
-  </div>
+       
+
 </div>
 </div>
 

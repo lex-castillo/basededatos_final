@@ -9,4 +9,4 @@ $id = $_GET["id"];
 $qry= "DELETE FROM proyectos WHERE id_proyecto = $id";
 $ejecucion = $ejecutar->ejecutar($qry);
 
-header("Location: all_project.php")
+header("Location: all_project.php");
